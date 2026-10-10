@@ -86,3 +86,13 @@ If no path is provided, the program will prompt for input.
 3. Inspect `StateResult_FS.txt` for cycle-by-cycle pipeline state.
 4. Inspect `RFResult.txt` to see register updates.
 5. Inspect `*_DMEMResult.txt` to see final memory state.
+
+---
+
+## 👤 Author
+
+---
+
+**D. Akhash Krishna**
+
+GitHub: [RISC-V-Simulator](https://github.com/AKHASHHH/RISC-V-Simulator)
