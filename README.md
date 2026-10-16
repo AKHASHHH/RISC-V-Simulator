@@ -1,5 +1,24 @@
 # Five-Stage Pipelined RISC-V Simulator
 
+<p align="center"><strong>C++ · RISC-V · Five-stage pipeline · Hazard handling</strong></p>
+
+<p align="center"><a href="#overview">Overview</a> &nbsp;·&nbsp; <a href="#features">Features</a> &nbsp;·&nbsp; <a href="#file-structure">File structure</a> &nbsp;·&nbsp; <a href="#compilation--execution">Run</a> &nbsp;·&nbsp; <a href="#input-files-format">Inputs</a> &nbsp;·&nbsp; <a href="#output-files">Outputs</a> &nbsp;·&nbsp; <a href="#-author">Author</a></p>
+
+## Five-stage pipeline at a glance
+
+```mermaid
+flowchart LR
+  IF["IF · Fetch"] --> ID["ID · Decode"]
+  ID --> EX["EX · Execute"]
+  EX --> MEM["MEM · Memory"]
+  MEM --> WB["WB · Write-back"]
+  MEM -. "Forwarding" .-> EX
+  WB -. "Forwarding" .-> EX
+  EX -. "Control-hazard feedback" .-> IF
+```
+
+*Overview of the pipeline stages and hazard-handling concepts documented below; this is not a cycle-accurate waveform.*
+
 ## Overview
 
 This project implements a cycle-accurate five-stage pipelined RISC-V simulator in C++. It simulates the following pipeline stages:
